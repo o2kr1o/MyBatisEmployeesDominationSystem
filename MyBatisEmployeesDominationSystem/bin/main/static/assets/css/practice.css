@@ -1,0 +1,155 @@
+@charset "utf-8";
+/* 非推奨 */
+@import "./regist.css";
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+html{
+    font-size: 16px;
+}
+.feature-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 75px;
+    line-height: 2;
+  }
+  
+.feature-item {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%; /* IE11バグ対応 */
+    height: 20px;
+    text-align: center;
+	padding: 50px;
+    margin: 20px;
+    border: 2px solid #000000
+}
+
+/* text */
+p {
+    color: red;
+    background-color: blue;
+    font-weight: bold;
+    font-size: 70px
+}
+
+/* div{
+    margin-bottom: 200px;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 200px;
+    background-image: url("IMG_5583.jpeg");
+    background-color: blue;
+    background-repeat: no-repeat;
+    background: url("IMG_5583.jpeg") blue no-repeat;
+    width: calc(100% - 500px);
+    height: 225px;
+    line-height: 2;
+    transform: translate(-50px, 250px) rotate(47deg) skew(40deg);
+} */
+
+#text {
+    background-color: #000000
+}
+
+.text {
+    background-color: #db1f5e;
+}
+
+a:hover {
+    color: beige;
+}
+
+.parent p {
+    color:aquamarine;
+}
+
+.parent > p {
+    color:darkgreen;
+}
+
+.abc,
+.def {
+    width: 50px;
+    height: 50px;
+    background-color: #000000;
+    margin: 10px;
+}
+
+.def.xyz {
+  background-color: red;  
+}
+
+div.def.def.xyz {
+    color: aqua;
+}
+
+.def + a {
+    font-size: 30px;
+}
+
+.abc {
+    color:red;
+}
+
+h1.headline {
+    color: red;
+}
+
+.abc > ul + p {
+    color: pink;
+}
+
+.abc > a:hover {
+    color: red;
+}
+
+.abc {
+    color: green;
+}
+
+p {
+    color:aqua !important;
+}
+
+.abc p {
+    color: blueviolet;
+}
+
+/* PC */
+.sample {
+    background-color: black;
+}
+/* SP */
+@media screen and (max-width: 1000px) {
+    .sample{
+        background-color: red;
+    }
+}
+/* Tablet */
+@media screen and (max-width: 1000px) and (min-width: 750px) {
+    .sample{
+        background-color: red;
+    }
+}
+
+.box {
+    text-align: center;
+    padding: 20px;
+    border: 1px solid red;
+    margin: 20px;
+}
+
+.block {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid red;
+    margin: 20px
+}
+
+.line {
+    text-align: center;
+    padding: 20px;
+    border: 2px solid red;
+    margin: 20px
+}

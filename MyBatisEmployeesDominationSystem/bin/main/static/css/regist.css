@@ -1,0 +1,27 @@
+p {
+	color: #FF0000;
+}
+h1 {
+	font-size:18pt;
+	font-weight:bold;
+	color:gray;
+}
+body {
+	font-size:13pt;
+	font-weight:bold;
+	color:gray;
+	margin:5px 25px;
+}
+tr {
+	margin:5px;
+}
+th {
+	padding:5px;
+	color:white;
+	background:darkgray;
+}
+td {
+	padding:5px;
+	color:black;
+	background:#f0f0f0;
+}

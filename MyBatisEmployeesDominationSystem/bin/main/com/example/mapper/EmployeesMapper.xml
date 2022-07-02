@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.EmployeesMapper">
+	<resultMap type="com.example.entity.Employees" id="empMap">
+		<id column="id" property="id" />
+		<result column="dept_id" property="dept_id" />
+		<result column="area_id" property="area_id" />
+		<result column="password" property="password" />
+		<result column="name" property="name" />
+		<result column="email" property="email" />
+		<result column="phone" property="phone" />
+		<result column="gender" property="gender" />
+		<result column="status" property="status" />
+		<result column="start_date" property="start_date" />
+		<result column="update_date" property="update_date" />
+	</resultMap>
+	<resultMap type="com.example.entity.Departments" id="deptsMap">
+		<id column="dept_id" property="dept_id" />
+		<result column="divisions" property="divisions" />
+	</resultMap>
+	<resultMap type="com.example.entity.Areas" id="areasMap">
+		<id column="area_id" property="area_id" />
+		<result column="territories" property="territories" />
+	</resultMap>
+	<!--ログイン用メソッド-->
+	<resultMap type="com.example.entity.Employees" id="loginMap">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="password" property="password" />
+		<result column="email" property="email" />
+		<association property="employeesRole" resultMap="roleMap"/>
+	</resultMap>
+	<resultMap id="roleMap" type="com.example.entity.EmployeesRole">
+		<result property="role" column="role" />
+	</resultMap>
+	<select id="findByEmail" resultMap="loginMap">
+		SELECT id, name, email, password, r.role
+		FROM employees e
+		INNER JOIN employees_role r
+		ON e.role_id = r.role_id
+		WHERE email = #{email}
+	</select>
+	<select id="getDeptsName" resultMap="deptsMap">
+		SELECT * From departments
+	</select>
+	<select id="getAreasName" resultMap="areasMap">
+		SELECT * From areas
+	</select>
+	<select id="findAll" resultMap="empMap">
+		SELECT * FROM employees
+	</select>
+	<select id="get" resultMap="empMap">
+		SELECT * FROM employees WHERE id = #{id}
+	</select>
+	<select id="search" resultMap="empMap">
+		SELECT * FROM employees
+		WHERE (#{name} IS NULL OR name LIKE '%${name}%') AND (#{email} IS NULL OR email LIKE '%${email}%') AND (#{phone} IS NULL OR phone LIKE '%${phone}%')
+	</select>
+	<insert id="insert" parameterType="com.example.entity.Employees" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO employees (dept_id, area_id, password, name, email, phone, gender, status, start_date, update_date)
+		VALUES (#{employees.dept_id}, #{employees.area_id}, #{employees.password}, #{employees.name}, #{employees.email}, #{employees.phone}, #{employees.gender}, "在籍", #{employees.start_date}, now())
+	</insert>
+	<update id="update" parameterType="com.example.entity.Employees">
+		UPDATE employees
+		SET dept_id = #{employees.dept_id}, area_id = #{employees.area_id}, password = #{employees.password}, name = #{employees.name}, email = #{employees.email}, phone = #{employees.phone}, gender = #{employees.gender}, status = "在籍", start_date = #{employees.start_date}, update_date = now() WHERE id = #{employees.id}
+	</update>
+	<delete id="delete"  parameterType="com.example.entity.Employees">
+		DELETE FROM employees WHERE id = #{id}
+	</delete>
+</mapper>

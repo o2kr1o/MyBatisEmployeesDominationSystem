@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<title>練習画面</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/sanitize.css}">
+		<link rel="stylesheet" type="text/css" th:href="@{/css/practice.css}">
+	</head>
+    <body>
+		<h1>練習</h1>
+        
+        <div class="feature-list">
+            text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text
+        </div>
+
+        <span class="feature-item">33%</span>
+        <span class="feature-item">33%</span>
+        <span class="feature-item">33%</span>
+
+        <p>text</p>
+        <!-- 同じid複数不可、一つだけ -->
+        <p id="text">text</p>
+        <p>text</p>
+        <!-- 同じclass複数可 -->
+        <p class="text">text</p>
+        <p class="text">text</p>
+        <p class="text">text</p>
+        <p class="text">text</p>
+
+        <a href="">Link</a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="parent">
+            <p>text</p>
+            <div>
+                <p>text</p>
+            </div>
+        </div>
+
+        <div class="abc">Text</div>
+        <div class="def xyz">Text</div>
+        <a href="">Link</a>
+
+        <div class="abc"><a href="">Hello</a></div>
+        <h1 class="headline">Fooo!</h1>
+        <div class="abc">
+            <ul>
+                <li>item</li>
+            </ul>
+            <p>item</p>
+            <div>item</div>
+        </div>
+
+        <div class="sample">Sample</div>
+
+        <div class="box">box</div>
+
+        <div class="block">block</div>
+
+        <span class="line">line</span>
+        <span class="line">line</span>
+        <span class="line">line</span>
+    </body>
+</html>
